@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pokemon', function (Blueprint $table) {
             $table->id();
+            $table->string('origin', 255)->nullable()->default('ORIGINAL');
             $table->integer('pokeapi_id')->unique();
             $table->string('name', 255)->unique();
             $table->json('pokeapi_data');
