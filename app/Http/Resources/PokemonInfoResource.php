@@ -15,6 +15,7 @@ class PokemonInfoResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'origin' => $this->origin,
             'pokeapi_id' => $this->pokeapi_id,
             'name' => $this->name,
             'detailed_data' => $this->pokeapi_data,
