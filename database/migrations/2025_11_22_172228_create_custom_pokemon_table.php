@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pokemon', function (Blueprint $table) {
+        Schema::create('custom_pokemon', function (Blueprint $table) {
             $table->id();
-            $table->string('origin', 255)->nullable()->default('ORIGINAL');
-            $table->integer('pokeapi_id')->unique();
+            $table->string('origin', 255)->nullable()->default('CUSTOM');
             $table->string('name', 255)->unique();
-            $table->json('pokeapi_data');
-            $table->timestamp('cached_at')->nullable();
+            $table->string('type', 255);
+            $table->text('description')->nullable();
+            $table->integer('height');
+            $table->integer('weight');
+            $table->integer('damage');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pokemon');
+        Schema::dropIfExists('custom_pokemon');
     }
 };

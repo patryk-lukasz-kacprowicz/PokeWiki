@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PokemonInfoResource extends JsonResource
+class CustomPokemonResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +16,12 @@ class PokemonInfoResource extends JsonResource
     {
         return [
             'origin' => $this->origin,
-            'pokeapi_id' => $this->pokeapi_id,
             'name' => $this->name,
-            'detailed_data' => $this->pokeapi_data,
-            'cached_at' => $this->cached_at->diffForHumans(),
+            'description' => $this->description ?? '',
+            'height' => $this->height,
+            'weight' => $this->weight,
+            'damage' => $this->damage,
+            'type' => $this->type,
         ];
     }
 }
